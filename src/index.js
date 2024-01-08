@@ -19,6 +19,7 @@ ReactDOM.render(
   document.getElementById("root")
 );
 
+// code with class component
 class Counter extends React.Component {
   state = {
     counter: 0
@@ -39,6 +40,18 @@ class Counter extends React.Component {
   }
 }
 export default Counter
+//  same code with function component
+function Counter() {
+  const [count, setCount] = useState(0);
+  function increment() {
+    setCount(count + 1);
+  }
+  return <div>
+    <p>{count}</p>
+    <button onClick={increment}>Increment</button>
+  </div>
+    ;
+}
 
 function SayHello() {
   const [name, setName] = useState("Beby");
