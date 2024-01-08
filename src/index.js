@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -13,9 +14,9 @@ root.render(
   </React.StrictMode>
 );
 
-const el = <Counter />;
+const el2 = <Counter />;
 ReactDOM.render(
-  el,
+  el2,
   document.getElementById("root")
 );
 
@@ -43,6 +44,9 @@ export default Counter
 //  same code with function component
 function Counter() {
   const [count, setCount] = useState(0);
+  useEffect(() => {
+    alert("Number of clicks: " + counter);
+  });
   function increment() {
     setCount(count + 1);
   }
@@ -58,6 +62,28 @@ function SayHello() {
   return <h1>Hello {name}</h1>;
 }
 
+
+function Counter2() {
+  const [counter, setCounter] = useState(0);
+
+  useEffect(() => {
+    alert("Number of clicks: " + counter);
+  });
+
+  function increment() {
+    setCounter(counter + 1);
+  }
+  return <div>
+    <p>{counter}</p>
+    <button onClick={increment}>Increment</button>
+  </div>;
+}
+
+const el = <Counter2 />;
+ReactDOM.render(
+  el,
+  document.getElementById('root')
+);
 
 /*
 ReactDOM.render(
