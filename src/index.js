@@ -162,6 +162,14 @@ function MyList(props) {
   const listItems = arr.map((val) =>
     <li>{val}</li>
   );
+  /*
+  const listItems = arr.map((val, index) =>
+  <li key={index}>{val}</li>
+);
+  Keys are important, because they uniquely identify elements,
+   helping React understand which items have changed,
+    are added, or are removed.
+  */
   return <ul>{listItems}</ul>;
 }
 
