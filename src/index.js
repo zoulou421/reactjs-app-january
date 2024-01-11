@@ -130,9 +130,9 @@ function Converter() {
   </div>;
 }
 
-const el = <Converter />;
+const el5 = <Converter />;
 ReactDOM.render(
-  el,
+  el5,
   document.getElementById('root')
 );
 
@@ -156,7 +156,22 @@ function AddForm() {
   </form>;
 }
 
+
+function MyList(props) {
+  const arr = props.data;
+  const listItems = arr.map((val) =>
+    <li>{val}</li>
+  );
+  return <ul>{listItems}</ul>;
 }
+
+const arr = ["A", "B", "C"];
+const el6 = <MyList data={arr} />;
+
+ReactDOM.render(
+  el6,
+  document.getElementById('root')
+);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
