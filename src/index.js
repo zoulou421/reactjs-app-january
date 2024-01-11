@@ -85,11 +85,78 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
+
+class Counter2 extends React.Component {
+  state = {
+    counter: 0
+  }
+  increment = () => {
+    this.setState({ counter: this.state.counter + 1 });
+  }
+  render() {
+    return <div>
+      <p>{this.state.counter}</p>
+      <button onClick={this.increment}>Increment</button>
+    </div>;
+  }
+}
+
+const el3 = <Counter2 />;
+ReactDOM.render(
+  el3,
+  document.getElementById('root')
+);
+
 /*
 ReactDOM.render(
   <h1>Hello Bonevy, React!</h1>,
   document.getElementById('root')
 );*/
+
+
+function Converter() {
+  const [km, setKm] = useState(0);
+
+  function handleChange(e) {
+    setKm(e.target.value);
+  }
+  function convert(km) {
+    return (km / 1.609).toFixed(2);
+  }
+
+  return <div>
+    <input type="text" value={km} onChange={handleChange} />
+    <p> {km} km is {convert(km)} miles </p>
+  </div>;
+}
+
+const el = <Converter />;
+ReactDOM.render(
+  el,
+  document.getElementById('root')
+);
+
+function AddForm() {
+  const [sum, setSum] = useState(0);
+  const [num, setNum] = useState(0);
+
+  function handleChange(e) {
+    setNum(e.target.value);
+  }
+
+  function handleSubmit(e) {
+    setSum(sum + Number(num));
+    e.preventDefault();
+  }
+
+  return <form onSubmit={handleSubmit}>
+    <input type="number" value={num} onChange={handleChange} />
+    <input type="submit" value="Add" />
+    <p> Sum is {sum} </p>
+  </form>;
+}
+
+}
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
